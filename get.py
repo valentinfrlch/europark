@@ -46,10 +46,9 @@ def map():
         lines = f.readlines()
         for line in lines:
             try:
-                name = f.readline().split('"')[0]
-                print(name)
-                lat = f.readline().split('"')[3].split(",")[0]
-                lon = f.readline().split('"')[3].split(",")[1]
+                name = line.split(',')[0]
+                lat = line.split(',')[1].strip()
+                lon = line.split(',')[2].strip()
                 print(name, lat, lon)
                 folium.Marker(location=[lat, lon], popup=name).add_to(map)
             except Exception as e:
@@ -57,7 +56,7 @@ def map():
     # save the map as html
     map.save("map.html")
     # open html file in browser
-    # webbrowser.open("map.html")
+    webbrowser.open("map.html")
 
 
 map()
