@@ -14,18 +14,18 @@ def get_wait_times():
 
 def parse_wait_times(data):
     rides = []
-    wait_times = []
+    rideInfo = []
     for item in data["lands"]:
         #append rides to rides list
         rides.append(item["rides"])
     for ride in rides:
         #append wait times to wait_times list
         # read ride as json object
-        print(ride[0])
-        ride = json.loads(ride[0])
-        print(ride["wait_time"])
-        wait_times.append([ride["id"], ride["wait_time"]])
-    return rides
-
+        ride = json.dumps(ride[0])
+        ride = json.loads(ride)
+        ride_time = ride["wait_time"]
+        ride_id = ride["id"]
+        rideInfo.append([ride_id, ride_time])
+    return rideInfo
 
 print(parse_wait_times(get_wait_times()))
