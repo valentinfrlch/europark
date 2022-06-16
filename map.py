@@ -21,11 +21,11 @@ def map(data):
                 folium.Marker(
                     location=[lat, lon], popup=name + "\ntime in line: " + wait_time).add_to(map)
             except Exception as e:
-                pass
+                print(e)
     # save the map as html
     map.save("index.html")
     # delete old information for next refresh
-    os.remove("response.json")
+    #os.remove("response.json")
     # open html file in browser
     webbrowser.open("index.html")
 

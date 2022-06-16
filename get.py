@@ -20,7 +20,10 @@ def get_wait_times():
         # save the data as a json file with timestamp as filename
         with open("response.json", "w") as f:
             json.dump(response.json(), f)
-    data = json.loads(response.text)
+            data = json.loads(response.text)
+    else:
+        with open("response.json", "r") as f:
+            data = json.load(f)
     return data
 
 
