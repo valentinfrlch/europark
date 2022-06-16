@@ -1,3 +1,4 @@
+from turtle import color
 import folium
 import webbrowser, os
 import get as get
@@ -18,14 +19,17 @@ def map(data):
                 lon = line.split(',')[2].strip()
                 id = line.split(',')[3].strip()
                 wait_time = r.get_wait_time(id)
-                folium.Marker(
-                    location=[lat, lon], popup=name + "\ntime in line: " + wait_time).add_to(map)
+                # add marker to the map with color based on wait time
+                color = r.color_rate(wait_time)
+                icon = r.icon_rate(wait_time)
+                map.add_child(folium.Marker(location=[
+                              lat, lon], popup=name + "\ntime in line: " + wait_time + "min", icon=folium.Icon(color=color, icon="8", prefix="fa-solid", icon_color="white")))
             except Exception as e:
                 print(e)
     # save the map as html
     map.save("index.html")
     # delete old information for next refresh
-    #os.remove("response.json")
+    os.remove("response.json")
     # open html file in browser
     webbrowser.open("index.html")
 

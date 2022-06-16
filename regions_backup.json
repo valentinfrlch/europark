@@ -1,0 +1,83 @@
+{
+    "Adventure Land": {
+        "name": "Adventure Land",
+        "children": [
+            5624,
+            5631,
+            5615,
+            5622,
+            5626
+        ]
+    },
+    "Switzerland": {
+        "name": "Switzerland",
+        "children": [
+            5607,
+            5613
+        ]
+    },
+    "Germany": {
+        "name": "Germany",
+        "children": [
+            5630
+        ]
+    },
+    "Austria": {
+        "name": "Austria",
+        "children": [
+            5609,
+            5629
+        ]
+    },
+    "France": {
+        "name": "France",
+        "children": [
+            5619,
+            5738,
+            5627
+        ]
+    },
+    "England": {
+        "name": "England",
+        "children": [
+            5621,
+            5604
+        ]
+    },
+    "Portugal": {
+        "name": "Portugal",
+        "children": [
+            5617
+        ]
+    },
+    "Italy": {
+        "name": "Italy",
+        "children": [
+            5620
+        ]
+    },
+    "Greece": {
+        "name": "Greece",
+        "children": [
+            5610,
+            5615
+        ]
+    },
+    "Russia": {
+        "name": "Russia",
+        "children": [
+            5737,
+            6280,
+            5605
+        ]
+    },
+    "Scandinavia": {
+        "name": "Scandinavia",
+        "children": [
+            5628,
+            5625,
+            5612,
+            5602
+        ]
+    }
+}
