@@ -1,7 +1,11 @@
 # get history wait time data from https://queue-times.com/ API
+#create a map
+
 
 import requests
 import json
+# visualize wait times on a map
+import folium, webbrowser
 
 base_url = "https://queue-times.com/parks/51/queue_times.json"
 
@@ -28,4 +32,15 @@ def parse_wait_times(data):
         rideInfo.append([ride_id, ride_time])
     return rideInfo
 
-print(parse_wait_times(get_wait_times()))
+def map(rideInfo=0):
+    # create a map
+    coords = (48.265, 7.7219845)
+    map = folium.Map(location=coords, zoom_start=16)
+    # save the map as html
+    map.save("map.html")
+    # open html file in browser
+    webbrowser.open("map.html")
+
+
+map()
+#print(parse_wait_times(get_wait_times()))
