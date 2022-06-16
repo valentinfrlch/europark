@@ -30,6 +30,7 @@ def parse_wait_times(data):
         ride_time = ride["wait_time"]
         ride_id = ride["id"]
         rideInfo.append([ride_id, ride_time])
+        print(ride)
     return rideInfo
 
 def map(rideInfo=0):
@@ -42,5 +43,5 @@ def map(rideInfo=0):
     webbrowser.open("map.html")
 
 
-map()
-#print(parse_wait_times(get_wait_times()))
+
+print(parse_wait_times(get_wait_times()))
