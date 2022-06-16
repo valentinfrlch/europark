@@ -1,6 +1,7 @@
 import folium
-import webbrowser
+import webbrowser, os
 import get as get
+import rate as r
 
 
 def map(data):
@@ -15,14 +16,20 @@ def map(data):
                 name = line.split(',')[0]
                 lat = line.split(',')[1].strip()
                 lon = line.split(',')[2].strip()
-                print(name, lat, lon)
-                folium.Marker(location=[lat, lon], popup=name).add_to(map)
+                id = line.split(',')[3].strip()
+                wait_time = r.get_wait_time(id)
+                folium.Marker(
+                    location=[lat, lon], popup=name + "\ntime in line: " + wait_time).add_to(map)
             except Exception as e:
                 pass
     # save the map as html
     map.save("index.html")
+    # delete old information for next refresh
+    os.remove("response.json")
     # open html file in browser
     webbrowser.open("index.html")
+
+
 
 
 if __name__ == "__main__":

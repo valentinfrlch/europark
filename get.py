@@ -7,12 +7,19 @@ import json
 # visualize wait times on a map
 import folium
 import webbrowser
+import time, os
 
 base_url = "https://queue-times.com/parks/51/queue_times.json"
 
 
 def get_wait_times():
-    response = requests.get(base_url)
+    files = os.listdir()
+    # if there is no file called response.json, get new data
+    if "response.json" not in files:
+        response = requests.get(base_url)
+        # save the data as a json file with timestamp as filename
+        with open("response.json", "w") as f:
+            json.dump(response.json(), f)
     data = json.loads(response.text)
     return data
 
@@ -32,6 +39,5 @@ def parse_wait_times(data):
     for ride in rides:
         ride = json.dumps(ride)
         ride = json.loads(ride)
-        print(ride["name"])
         rideInfo.append(ride)
     return rideInfo
