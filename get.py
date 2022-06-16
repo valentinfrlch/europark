@@ -54,9 +54,9 @@ def map():
             except Exception as e:
                 pass
     # save the map as html
-    map.save("map.html")
+    map.save("index.html")
     # open html file in browser
-    webbrowser.open("map.html")
+    webbrowser.open("index.html")
 
 
 map()
