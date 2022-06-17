@@ -1,4 +1,5 @@
 import json
+import folium
 
 
 def distance(p1, p2):
@@ -6,7 +7,9 @@ def distance(p1, p2):
     return ((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 0.5
 
 # create area polygon from list of coordinates
-def create_area():
+
+
+def read_areas():
     #read ids from file
     with open('regions.json') as f:
         data = json.load(f)
@@ -18,5 +21,8 @@ def create_area():
             for child in item["children"]:
                 print(child)
 
-create_area()
-            
+
+def create_area(coords):
+    # create area polygon from list of coordinates
+    return folium.Polygon(coords)
+
