@@ -6,13 +6,17 @@ def distance(p1, p2):
     return ((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 0.5
 
 # create area polygon from list of coordinates
-def create_area(coords):
+def create_area():
     #read ids from file
     with open('regions.json') as f:
         data = json.load(f)
         # get the coordinates for the children
         for item in data:
-            children = []
+            # parse the item json
+            item = json.dumps(item)
+            print(item)
             for child in item["children"]:
-                children.append()
+                print(child)
+
+create_area()
             
